@@ -1,28 +1,22 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
 def home_page(request):
-    html = """<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    context = {
+        "title": "Página principal",
+        "content": "Bem-vindo a página principal"
+    }
+    return render(request, "home_page.html", context)
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+def about_page(request):
+    context = {
+        "title": "Página sobre",
+        "content": "Bem-vindo a página sobre"
+    }
+    return render(request, "about/view.html", context)
 
-    <title>Olá Mundo!</title>
-  </head>
-  <body>
-  <div class='text-center'>
-    <h1>Olá Mundo!</h1>
-</div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  </body>
-</html>"""
-    return HttpResponse(html)
+def contact_page(request):
+    context = {
+        "title": "Página de contato",
+        "content": "Bem-vindo a página de contato"
+    }
+    return render(request, "contact/view.html", context)
